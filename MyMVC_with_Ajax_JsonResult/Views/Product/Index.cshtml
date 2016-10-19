@@ -1,0 +1,85 @@
+﻿@model IEnumerable<MyMVC_with_Ajax_JsonResult.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Products</h2>
+
+<p>
+    <button type="button" id="btnCreate" class="btn btn-primary" data-toggle="modal" data-target="#productModal">
+        Create New
+    </button>
+</p>
+
+<table id="listProducts" class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<!--Insert/Update Model-->
+<div id="productModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><label id="title"></label></h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <input type="hidden" class="form-control" id="Id" />
+                            <label>Name</label>
+                            <input type="text" id="Name" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <label>Price</label>
+                            <input type="text" id="Price" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" id="btnSave" class="btn btn-primary">Save</button>
+                <button type="button" id="btnClose" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--Confirmation modal-->
+<div id="confirmModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><label id="title"></label></h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    Do you want to delete this record ?
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnOk" class="btn btn-primary">Ok</button>
+                <button type="button" id="btnCancel" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript" src="~/Scripts/lib/product.js"></script>
+}
